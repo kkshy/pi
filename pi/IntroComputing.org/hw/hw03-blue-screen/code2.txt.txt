@@ -1,0 +1,21 @@
+//姓名:蒋嘉璇 班级:4 学号:201852180421
+//提示: 猴子图片的背景色的判断思路：B值差一点点(小数点点)不到平均值[注意是不到，而不是超过哦]
+image = new SimpleImage("monkey.jpg");
+back = new SimpleImage("moon.jpg");
+
+
+for (pixel: image) {
+  avg = (pixel.getRed() + pixel.getGreen() + pixel.getBlue())/3;
+  // your code here
+   if (pixel.getBlue() > avg * 0.9){
+      x = pixel.getX();
+      y = pixel.getY();
+      pixel2 = back.getPixel(x, y);
+      pixel.setRed(pixel2.getRed());
+      pixel.setGreen(pixel2.getGreen());
+      pixel.setBlue(pixel2.getBlue());
+      }
+
+}
+
+print(image);

@@ -1,0 +1,59 @@
+<html>
+
+<!-- Mirrored from introcomputing.org/image-5-puzzles.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jan 2019 10:56:44 GMT -->
+<head>
+<title>Image 图像之谜</title>
+<link rel=stylesheet href=style.css type="text/css">
+
+</head>
+<body>
+<script type="text/javascript" src="cs101.js"></script>
+<script type="text/javascript" src="cs101-table.js"></script>
+<script type="text/javascript" src="cs101-simulation.js"></script>
+
+<!-- njp
+<div id=warning-output></div>
+-->
+
+<h1>图像之谜</h1>
+
+<p>
+
+  <ul class="slide">
+  <li>下图每个像素两个色阶被设置为了0~255的随机值，一个色阶被调暗了
+  <li>
+    图片里到底隐藏着什么物体呢?
+  </li>
+  </ul>
+
+
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="image-puzzle-gold" rows=13 cols=45  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+image = new SimpleImage("cold-puzzle.png");
+
+
+print(image);</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("image-puzzle-gold")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='image-puzzle-gold-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+
+<p>提示:
+<div>
+<button onclick='unhide(this)'>show</button><div style='display:none'>
+<pre>
+  单通道
+</pre></div>
+</div>
+
+</body>
+<!-- Mirrored from introcomputing.org/image-5-puzzles.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jan 2019 10:56:45 GMT -->
+</html>

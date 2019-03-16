@@ -1,0 +1,113 @@
+<html>
+
+<!-- Mirrored from introcomputing.org/image-6-grayscale.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jan 2019 10:56:45 GMT -->
+<head>
+<title>灰度图像</title>
+<link rel=stylesheet href=style.css type="text/css">
+
+</head>
+<body>
+<script type="text/javascript" src="cs101.js"></script>
+<script type="text/javascript" src="cs101-table.js"></script>
+<script type="text/javascript" src="cs101-simulation.js"></script>
+
+<!-- njp
+<div id=warning-output></div>
+-->
+
+<h1>灰度图像</h1>
+
+
+<h2>先探索一下吧!</h2>
+
+<ul class="slide">
+<li>访问 <a href=www.cknuckles.com/rgbsliders.html>RGB探索工具</a> 看看如何弄不同亮度的灰色
+<li>提示: 关键不是RGB的具体值，关键是三者的关系
+</ul>
+
+
+<h2>单色变灰度</h2>
+
+<p>
+<br><img src=red-gate.jpg alt="the yellow flowers.jpg image">
+
+<ul class="slide">
+<li>我们现在知道了要把所有像素的每个RGB都设置为一样的
+<li>但是这并不能解决我们到底给每个像素的RGB赋值为什么的问题?
+<li>如何把上面这幅单色图片编程灰色的呢?
+</ul>
+
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="image-gray1" rows=12 cols=65  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+image = new SimpleImage("red-gate.jpg");
+for (p: image) {
+
+}
+print(image);
+</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("image-gray1")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='image-gray1-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+
+<p>提示:
+<div>
+<button onclick='unhide(this)'>show</button><div style='display:none'>
+<pre>
+  有什么值，就用什么值就好了
+</pre></div>
+</div>
+
+
+<h2>彩色变灰度</h2>
+
+<p>
+<br><img src=flowers.jpg alt="the yellow flowers.jpg image">
+
+<ul class="slide">
+<li>单色就用那个颜色这个好理解
+<li>但是如果是彩色图片呢? 每个像素的RGB三者都不一样怎么办?
+<li>如何把上面这幅图片变成灰色的呢?
+</ul>
+
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="image-gray2" rows=12 cols=65  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+i = new SimpleImage("flowers.jpg");
+for (p: i) {
+
+}
+print(image);</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("image-gray2")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='image-gray2-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+<p>提示
+<div>
+<button onclick='unhide(this)'>show</button><div style='display:none'>
+<pre>
+  想一个办法，兼顾RGB三者
+</pre></div>
+</div>
+
+</br>
+<p>
+
+</body>
+<!-- Mirrored from introcomputing.org/image-6-grayscale.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jan 2019 10:56:45 GMT -->
+</html>

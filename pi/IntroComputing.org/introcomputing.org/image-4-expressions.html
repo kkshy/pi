@@ -1,0 +1,194 @@
+<html>
+
+<!-- Mirrored from introcomputing.org/image-4-expressions.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jan 2019 10:56:44 GMT -->
+<head>
+<title>表达式</title>
+<link rel=stylesheet href=style.css type="text/css">
+
+</head>
+<body>
+<script type="text/javascript" src="cs101.js"></script>
+<script type="text/javascript" src="cs101-table.js"></script>
+<script type="text/javascript" src="cs101-simulation.js"></script>
+
+<!-- njp
+<div id=warning-output></div>
+-->
+
+<h1>图像编程: 表达式</h1>
+
+<p>
+
+
+
+<p>In this section, we'll look how to use expressions to greatly expand what we can do in a loop. With expressions, we'll be able to write real image manipulation code, and in particular solve some puzzles based on images.
+
+<h2>表达式 1 + 1</h2>
+
+我们可以通过表达式进行必要的数学运算，比如如下代码的结果是 42
+
+<pre>
+  print(11 + 31);
+</pre>
+
+
+<h2>pixel.getRed() / pixel.getGreen() / pixel.getBlue()</h2>
+
+我们可以通过这3个方法获得某一个像素点的当前 RGB 值
+<ul>
+<li><code>pixel.getRed()</code>  -- 获得像素 pixel 的 红色阶 值
+<li><code>pixel.getGreen()</code> -- 获得像素 pixel 的 绿色阶 值
+<li><code>pixel.getBlue()</code> -- 获得像素 pixel 的 蓝色阶 值
+</ul>
+
+<ul class="slide">
+<li>利用以上代码，结合表达式，就可以实现：把某一个像素点的红色阶的当前值+100
+</ul>
+
+<pre>
+  old = pixel.getRed();
+  pixel.setRed(old + 100);
+</pre>
+
+<ul class="slide">
+<li>把x.png的(0,0)像素的R+100
+</ul>
+
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="image-expression-practice1" rows=12 cols=50  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+
+</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("image-expression-practice1")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='image-expression-practice1-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+<h2>练习 1</h2>
+
+<ul class="slide">
+<li>把花 flowers.jpg 的颜色变亮，但是不要太亮
+</ul>
+
+
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="image-expression-1" rows=13 cols=50  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+//姓名:XXX 班级:X 学号:XXXX
+image = new SimpleImage("flowers.jpg");
+
+for (pixel: image) {
+
+
+}
+
+print(image);</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("image-expression-1")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='image-expression-1-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+<p>提示:
+<div>
+<button onclick='unhide(this)'>show</button><div style='display:none'>
+<pre>
+  绿色只取之前的75%
+</pre></div>
+</div>
+
+
+<h2>练习 2</h2>
+
+<ul class="slide">
+<li>把花 flowers.jpg 的颜色变暗，但是不要太暗
+</ul>
+
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="image-expression-2" rows=13 cols=50  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+//姓名:XXX 班级:X 学号:XXXX
+</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("image-expression-2")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='image-expression-2-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+<p>提示:
+<div>
+<button onclick='unhide(this)'>show</button><div style='display:none'>
+<pre>
+  整体按比例提升或者降低，注意比例可以保存在一个变量中
+</pre></div>
+</div>
+
+
+
+<h2>5-10-20 流浪地球之谜</h2>
+
+<ul class="slide">
+<li>所有像素的RGB统一一个变化5倍，一个10倍，一个20倍，还原海报
+<li>
+  你可以先打印一下图片看看原图是什么样子的
+</li>
+</ul>
+
+
+
+
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="image-expression-banana" rows=12 cols=50  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+//姓名:XXX 班级:X 学号:XXXX
+image = new SimpleImage("51020-earth.png");
+
+print(image);
+</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("image-expression-banana")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='image-expression-banana-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+
+<p>提示:
+<div>
+<button onclick='unhide(this)'>show</button><div style='display:none'>
+<pre>
+  到底是太红了，太绿了还是太蓝了? 如果调整之后还是太蓝了，是不是表示蓝的倍数应该少一点?
+</pre></div>
+</div>
+
+<p>
+
+<!--
+
+<p><b>Oranges 102030 puzzle</b> - the oranges should look orange, there are red apples to the right, sign is black, and the price is written with white letters.
+
+-->
+
+</body>
+<!-- Mirrored from introcomputing.org/image-4-expressions.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jan 2019 10:56:44 GMT -->
+</html>

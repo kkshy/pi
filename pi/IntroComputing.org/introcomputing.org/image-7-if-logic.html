@@ -1,0 +1,202 @@
+<html>
+
+<!-- Mirrored from introcomputing.org/image-7-if-logic.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jan 2019 10:56:46 GMT -->
+<head>
+<title>if判断语句</title>
+<link rel=stylesheet href=style.css type="text/css">
+
+</head>
+<body>
+<script type="text/javascript" src="cs101.js"></script>
+<script type="text/javascript" src="cs101-table.js"></script>
+<script type="text/javascript" src="cs101-simulation.js"></script>
+
+<!-- njp
+<div id=warning-output></div>
+-->
+
+
+<h1>if判断语句</h1>
+
+<h2>警示牌：单色转变</h2>
+<p>
+<br><img src=stop.jpg alt="red stop sign, white letters">
+
+<ul class="slide">
+<li>下面这段代码，用if语句判断了以上这个警示牌的每个像素的红色阶是否>160
+<li>如果大于，则设置为纯蓝色的
+<li>看看能不能很好地实现把红色的警示牌编程蓝色的呢?
+</ul>
+
+
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="image-logic-1" rows=13 cols=65  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+image = new SimpleImage("stop.jpg");
+for (pixel: image) {
+  if (pixel.getRed() > 160) {
+    pixel.setRed(0);
+    pixel.setGreen(0);
+    pixel.setBlue(255);
+  }
+}
+print(image);</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("image-logic-1")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='image-logic-1-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+
+<h2>(red > 160) 效果并不好, 怎么办呢?</h2>
+
+<p>
+  <ul class="slide">
+  <li>从以下这个图，我们可以看到，某种颜色趋势其实不一定是由数值来判断的
+  <li>而是通过RGB三者的关系来判断的
+  <li>但是问题又来了，这个关系好说不好码代码啊? 怎么实现呢?
+  </ul>
+
+<p>
+<br>
+<img src=image-if-avg1.png alt="red/green/blue bar graphs of three pixels">
+
+
+
+<h2>再次借助平均值</h2>
+
+<img src=image-if-avg2.png alt="red/green/blue bar graphs with avg shown">
+<ul class="slide">
+<li>经过研究，发现原来主色调与平均色avg呈现如上图关系
+<li>那么我们只要找到R>avg的值是否就可以实现想要的效果了呢
+<li>可以在下面的代码框试验一下
+</ul>
+<p>
+平均值的计算如下
+<pre>
+  avg = (pixel.getRed() + pixel.getGreen() + pixel.getBlue())/3;
+</pre>
+
+<p>
+
+
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="image-logic-2" rows=14 cols=65  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+image = new SimpleImage("stop.jpg");
+for (pixel: image) {
+  avg = (pixel.getRed() + pixel.getGreen() + pixel.getBlue())/3;
+
+  if (pixel.getRed() > avg) {
+    pixel.setRed(0);
+    pixel.setGreen(0);
+    pixel.setBlue(255);
+  }
+}
+print(image);</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("image-logic-2")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='image-logic-2-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+<ul class="slide">
+<li>发现还是不行? 为什么呢？
+<li>提示一下：条件太低了，想办法严格一点
+<li>用四则运算中的某一个运算，让条件严格一点
+</ul>
+
+
+<h2>路基：彩色转变</h2>
+<ul class="slide">
+<li>刚才我们尝试了把红色的变成单色：则设置为纯蓝色的
+<li>现在我想把红色的路基，变成：灰色的!
+<li>怎么实现?
+</ul>
+
+<br>
+<img src=curb.jpg alt="red curb">
+
+
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="image-logic-3" rows=14 cols=65  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+image = new SimpleImage("curb.jpg");
+
+
+
+print(image);</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("image-logic-3")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='image-logic-3-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+
+<p>提示:
+<div>
+<button onclick='unhide(this)'>show</button><div style='display:none'>
+<pre>
+平均啊平均！
+</pre></div>
+</div>
+
+<!--
+<p>
+&gt; <a href='image-7-if-exercises.html'>exercises</a>
+
+
+
+Exercises for this
+
+-stop sign
+-curb fix - hilarious (red detect)
+
+Exercises
+-blue sky behind sign
+  if (pixel.getBlue() > avg * 1.05) {
+    pixel.setRed(40);
+    pixel.setGreen(40);
+    pixel.setBlue(40);
+
+-fence-ivy
+ -change green
+  change green to sort of blue/purple (could show what we want)
+  if (pixel.getGreen() > avg * 0.9) {
+    //pixel.setRed(avg * 2);
+    pixel.setGreen(pixel.getGreen() / 2);
+    pixel.setBlue(pixel.getBlue() * 2);
+
+-curb .. could change curb to look blue
+ -left with blue bits of course
+    pixel.setRed(avg / 2);
+    pixel.setGreen(avg / 2);
+    pixel.setBlue(avg * 1.4);
+
+
+
+
+-white parts of sign (too hard)
+
+
+
+
+-->
+</body>
+<!-- Mirrored from introcomputing.org/image-7-if-logic.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jan 2019 10:56:49 GMT -->
+</html>

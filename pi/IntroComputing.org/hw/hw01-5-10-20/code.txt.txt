@@ -1,0 +1,8 @@
+//ÐÕÃû:½¯¼Îè¯ °à¼¶:4 Ñ§ºÅ:201852180421
+image = new SimpleImage("51020-earth.png");
+for(pixel:image){
+   pixel.setRed(pixel.getRed()*10)
+   pixel.setGreen(pixel.getGreen()*20) 
+   pixel.setBlue(pixel.getBlue()*5)
+}
+print(image);

@@ -1,0 +1,168 @@
+<html>
+
+<!-- Mirrored from introcomputing.org/code-1-introduction.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jan 2019 10:56:18 GMT -->
+<!-- use GBK instead of UTF-8 when editing -->
+<!-- use Chrome instead of Firefox when editing -->
+
+<head>
+<title>Introduction to Computing Principles</title>
+<link rel=stylesheet href=style.css type="text/css">
+
+</head>
+<body>
+<script type="text/javascript" src="cs101.js"></script>
+<script type="text/javascript" src="cs101-table.js"></script>
+<script type="text/javascript" src="cs101-simulation.js"></script>
+
+<!-- njp
+<div id=warning-output></div>
+-->
+
+<h1>工具 1 print</h1>
+
+
+<ul class="slide">
+
+<li>第一个工具就是 print
+<li>他可以打印任何放在括号里面的东西
+
+</ul>
+
+
+
+<h2>1. 学习print语句</h2>
+
+<p>可以直接打印数字 6 </p>
+<p>如果想要连着打两个内容，用逗号分割</p>
+<p>如果要打印字符串，则需要用双引号</p>
+
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="code1-1" rows=6 cols=55  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+
+</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("code1-1")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='code1-1-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+<h2>2. Print 字符串String</h2>
+<p>用双引号打印字符串内容</p>
+<p>注释用 // </p>
+
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="code1-2" rows=7 cols=55  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+//这是一行注释，注释的内容不会被运行
+//打印 6 hi
+//打印 hello 2 bye</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("code1-2")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='code1-2-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+<h2>找错误</h2>
+
+<p>随机点名</p>
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="code1-err1" rows=6 cols=55  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+print("a");
+prlnt(1, "b");
+print(2, "c", 3);</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("code1-err1")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='code1-err1-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+<p>随机点名</p>
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="code1-err2" rows=6 cols=55  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+print("a");
+print(1, "b);
+print(2, "c", 3);</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("code1-err2")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='code1-err2-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+<p>随机点名</p>
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="code1-err3" rows=6 cols=55  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+print("a");
+print(1, "b");
+print(2, "c", 3;</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("code1-err3")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='code1-err3-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+<p>随机点名</p>
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="code1-err4" rows=6 cols=55  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+print("a");
+print(1 "b");
+print(2, "c", 3);</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("code1-err4")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='code1-err4-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+<p>随机点名</p>
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="code1-3" rows=8 cols=55  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+print(1, "hi")；</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("code1-3")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='code1-3-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+<p>
+&gt; <a href='code-1-exercises.html'>练习</a>
+
+</body>
+
+<!-- Mirrored from introcomputing.org/code-1-introduction.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jan 2019 10:56:29 GMT -->
+</html>

@@ -1,0 +1,136 @@
+<html>
+
+<!-- Mirrored from introcomputing.org/image-2-code.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jan 2019 10:56:43 GMT -->
+<head>
+<title>图像编程</title>
+<link rel=stylesheet href=style.css type="text/css">
+
+</head>
+<body>
+<script type="text/javascript" src="cs101.js"></script>
+<script type="text/javascript" src="cs101-table.js"></script>
+<script type="text/javascript" src="cs101-simulation.js"></script>
+
+<!-- njp
+<div id=warning-output></div>
+-->
+
+<h1>图像编程</h1>
+
+<p>
+
+
+
+<!-- image-2 -->
+
+<p>我们开始要进行图像编程了
+
+<h2>x.png</h2>
+
+<ul class=slide>
+<li>
+  我们要处理的图像是 x.png
+</li>
+<li>只有 10 * 10 个像素, 很小的, 看的见么：<img src=x.png alt="x.png">
+</ul>
+
+<h2>图像处理的工具：显示 + 放大</h2>
+
+<ul class=slide>
+<li>3行代码
+<hr>
+<li><code>x = new SimpleImage("x.png");</code>
+<li>
+  定义一个变量x为x.png
+</li>
+<li>注意要声明 x.png 是一个新的new，简单的图像SimpleImage
+<hr>
+<li><code>x.setZoom(20);</code>
+<li>
+  通过 x 的 set设置Zoom焦距方法，把x放大20倍
+</li>
+<hr>
+<li><code>print(x);</code>
+<li>
+  打印出来被放大20倍以后的图像x
+</li>
+</ul>
+
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="image2-1" rows=6 cols=70  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+//姓名：XXX 班级:X 学号:XXXX
+1. 声明一个变量获取 x.png 的内容
+2. 把它放大20倍
+3. 打印这个图像
+</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("image2-1")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='image2-1-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+
+<h2>图像处理的工具：获得像素点 + 改变像素点的RGB值</h2>
+
+<ul class=slide>
+<li><code>p = x.getPixel(0, 0);</code>
+<li>
+  get获得，Pixel像素 => 以上代码获得x的第(0,0)位置的像素点，并存入p中
+</li>
+<hr />
+<li><code>p.setRed(255);</code>
+<li>
+  set设置，Red红 => 以上代码把获取的像素点的R值改为255
+</li>
+</ul>
+
+<p style='max-width:1000'>
+<table class=run>
+<tr><td valign=top width=550> <!-- CODE -->
+<textarea id="image2-2" rows=10 cols=70  class=tacode spellcheck=false
+onKeyPress='return handleCR(this ,event)'>
+//声明一个变量获取 x.png 的内容
+//把它放大20倍
+//获得图像(0,0)点像素
+//把该像素改成红色的
+//打印这个图像
+</textarea>
+<br><input type=button style='width:220;height:40;background-color:lightgray'
+value="Run" onClick='evaluateClear("image2-2")'>
+</td>
+<td valign=top> <!-- OUTPUT -->
+<div id='image2-2-output' style="font-family:courier;font-size:14;"></div>
+</td></tr>
+</table>
+
+
+<h2>设置RGB的方法</h2>
+
+<ul class=slide>
+<li><code>p.setRed(<i>number</i>);</code>
+
+<li><code>p.setGreen(<i>number</i>);</code>
+
+<li><code>p.setBlue(<i>number</i>);</code>
+
+</ul>
+
+
+<h2>图像处理函数参考</h2>
+
+<p>如果日后想要参考函数具体的内容，可进入网页 <a href=image-functions-reference.html>图像处理函数参考</a>
+
+<p>
+&lt; <a href='image-2-exercises.html'>练习</a>
+
+
+</body>
+
+<!-- Mirrored from introcomputing.org/image-2-code.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 24 Jan 2019 10:56:44 GMT -->
+</html>
